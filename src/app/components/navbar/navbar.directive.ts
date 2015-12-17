@@ -16,10 +16,7 @@ export function acmeNavbar(): angular.IDirective {
 
 /** @ngInject */
 export class NavbarController {
-  public relativeDate: string;
-  public creationDate: number;
-
-  constructor(moment: moment.MomentStatic) {
-    this.relativeDate = moment(this.creationDate).fromNow();
+  constructor() {
+    
   }
 }
