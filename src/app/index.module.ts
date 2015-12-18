@@ -4,7 +4,9 @@ import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
-import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
+import { ModalInstanceController } from './components/expenseForm/modalInstance.controller';
+import { ExpenseFormController } from './components/expenseForm/expenseForm.controller';
+import { StoreService } from '../app/components/store/store.service';
 import { acmeNavbar } from '../app/components/navbar/navbar.directive';
 
 module expensio {
@@ -14,7 +16,9 @@ module expensio {
     .config(config)
     .config(routerConfig)
     .run(runBlock)
-    .service('webDevTec', WebDevTecService)
+    .service('store', StoreService)
     .controller('MainController', MainController)
+    .controller('ModalInstanceController', ModalInstanceController)
+    .controller('ExpenseFormController', ExpenseFormController)
     .directive('acmeNavbar', acmeNavbar);
 }

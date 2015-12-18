@@ -5,16 +5,30 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
-      <div class="thumbnail">
-        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
-        <div class="caption">
-          <h3>{{ awesomeThing.title }}</h3>
-          <p>{{ awesomeThing.description }}</p>
-          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="thumbnail">
+          </div>
+          <div class="thumbnail">
+          </div>
+          <div class="thumbnail">
+          </div>
+          <div class="thumbnail">
+          </div>
+        </div>
+      </div>    
+    </div>
+    <div class="col-md-4">
+      <div class="row">
+        <div ng-repeat="expense in main.expenses track by expense.id | orderBy:'id'">
+          <div class="well">
+              Spent <b>{{expense.amount}}</b> for {{expense.description}} in {{expense.category}} from Salary with Cash payment
+          </div>
         </div>
       </div>
     </div>
   </div>
-
+  
+  
 </div>
