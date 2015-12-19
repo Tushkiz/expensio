@@ -21,10 +21,28 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 
 .thumbnail {
   height: 200px;
+  border: 0;
 
   img.pull-right {
     width: 50px;
   }
+}
+
+// main
+
+body {
+    background-color: #ECECEC;
+}
+
+// bootstrap overwrites
+.panel {
+	border: 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12);
+    border-radius: 1px;
+}
+
+.panel-body {
+	padding: 0px;
 }
 
 /**

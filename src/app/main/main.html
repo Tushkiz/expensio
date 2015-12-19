@@ -8,25 +8,31 @@
     <div class="col-md-8">
       <div class="row">
         <div class="col-sm-12">
-          <div class="thumbnail">
+          <div class="panel panel-default">
+            <div class="panel-heading">Expense Graph 1</div>
+            <div class="panel-body thumbnail">
+              
+            </div>
           </div>
-          <div class="thumbnail">
+          
+          <div class="panel panel-default">
+            <div class="panel-heading">Expense Graph 2</div>
+            <div class="panel-body thumbnail">
+              
+            </div>
           </div>
-          <div class="thumbnail">
-          </div>
-          <div class="thumbnail">
+          
+          <div class="panel panel-default">
+            <div class="panel-heading">Expense Graph 3</div>
+            <div class="panel-body thumbnail">
+              
+            </div>
           </div>
         </div>
       </div>    
     </div>
     <div class="col-md-4">
-      <div class="row">
-        <div ng-repeat="expense in main.expenses track by expense.id | orderBy:'id'">
-          <div class="well">
-              Spent <b>{{expense.amount}}</b> for {{expense.description}} in {{expense.category}} from Salary with Cash payment
-          </div>
-        </div>
-      </div>
+      <expense-list></expense-list>
     </div>
   </div>
   

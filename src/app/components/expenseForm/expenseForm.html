@@ -12,12 +12,36 @@
       <input type="text" class="form-control" ng-model="amount" name="amount" placeholder="Enter amount" />
     </div>
     <div class="form-group">
-      <label for="category">Category</label>
-      <input type="text" class="form-control" ng-model="category" name="category" placeholder="Specify Category" />
+        <label for="category">Category</label>
+        <select class="form-control" name="category" ng-model="category">
+            <option value="">---Specify Category---</option>
+            <option value="food">Food</option>
+            <option value="shopping">Shopping</option>
+            <option value="fuel">Fuel</option>
+            <option value="rent">Rent</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="category">Payment Mode</label>
+        <select class="form-control" name="paymentMode" ng-model="paymentMode">
+            <option value="">---Specify Payment Mode---</option>
+            <option value="cash">Cash</option>
+            <option value="credit-card">Credit Card</option>
+            <option value="debit-card">Debit Card</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="category">Income Source</label>
+        <select class="form-control" name="incomeSource" ng-model="incomeSource">
+            <option value="">---Specify Income Source---</option>
+            <option value="salary">Salary</option>
+            <option value="business">Business</option>
+            <option value="farming">Farming</option>
+        </select>
     </div>
     </form>
 </div>
 <div class="modal-footer">
 	<button type="submit" class="btn btn-primary" ng-click="modal.submit()">Submit</button>
-  <button type="button" class="btn btn-default" ng-click="modal.cancel()">Cancel</button>
+    <button type="button" class="btn btn-default" ng-click="modal.cancel()">Cancel</button>
 </div>

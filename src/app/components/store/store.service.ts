@@ -2,7 +2,9 @@ export class Expense {
 	id: number;
 	description: string;
 	amount: number;
-	category: string[];
+	category: string;
+    paymentMode: string;
+    incomeSource: string;
 }
 
 export class StoreService {
@@ -21,34 +23,44 @@ export class StoreService {
 	constructor() {
 		let rawData = [
 			{
-				'id': 1450417381460,
+				'id': 1450217381460,
 				'description': 'Lunch',
 				'amount': 100,
-				'category': ['food']
+				'category': 'food',
+                'incomeSource': 'salary',
+                'paymentMode': 'debit-card'
 			},
 			{
-				'id': 1450417381810,
+				'id': 1450217381810,
 				'description': 'Jeans',
 				'amount': 799,
-				'category': ['clothes']
+				'category': 'shopping',
+                'incomeSource': 'business',
+                'paymentMode': 'credit-card'
 			},
 			{
-				'id': 1450417382160,
+				'id': 1450317382160,
 				'description': 'Rent',
 				'amount': 4150,
-				'category': ['rent']
+				'category': 'rent',
+                'incomeSource': 'farming',
+                'paymentMode': 'cash'
 			},
 			{
-				'id': 1450417382510,
+				'id': 1450317382510,
 				'description': 'Dinner',
 				'amount': 80,
-				'category': ['food']
+				'category': 'food',
+                'incomeSource': 'salary',
+                'paymentMode': 'cash'
 			},
 			{
 				'id': 1450417382860,
 				'description': 'Petrol',
 				'amount': 500,
-				'category': ['travel', 'bike']
+				'category': 'fuel',
+                'incomeSource': 'salary',
+                'paymentMode': 'cash'
 			}
 		];
 

@@ -6,8 +6,10 @@ import { runBlock } from './index.run';
 import { MainController } from './main/main.controller';
 import { ModalInstanceController } from './components/expenseForm/modalInstance.controller';
 import { ExpenseFormController } from './components/expenseForm/expenseForm.controller';
+import { ExpenseListController } from './components/expenseList/expenseList.controller';
 import { StoreService } from '../app/components/store/store.service';
 import { acmeNavbar } from '../app/components/navbar/navbar.directive';
+import { expenseList } from '../app/components/expenseList/expenseList.directive';
 
 module expensio {
   'use strict';
@@ -20,5 +22,7 @@ module expensio {
     .controller('MainController', MainController)
     .controller('ModalInstanceController', ModalInstanceController)
     .controller('ExpenseFormController', ExpenseFormController)
-    .directive('acmeNavbar', acmeNavbar);
+    .controller('ExpenseListController', ExpenseListController)
+    .directive('acmeNavbar', acmeNavbar)
+    .directive('expenseList', expenseList);
 }
