@@ -8,8 +8,8 @@ import { ModalInstanceController } from './components/expenseForm/modalInstance.
 import { ExpenseFormController } from './components/expenseForm/expenseForm.controller';
 import { ExpenseListController } from './components/expenseList/expenseList.controller';
 import { StoreService } from '../app/components/store/store.service';
-import { acmeNavbar } from '../app/components/navbar/navbar.directive';
-import { expenseList } from '../app/components/expenseList/expenseList.directive';
+import { navbar } from '../app/components/navbar/navbar.component';
+import { expenseList } from '../app/components/expenseList/expenseList.component';
 
 module expensio {
   'use strict';
@@ -23,6 +23,6 @@ module expensio {
     .controller('ModalInstanceController', ModalInstanceController)
     .controller('ExpenseFormController', ExpenseFormController)
     .controller('ExpenseListController', ExpenseListController)
-    .directive('acmeNavbar', acmeNavbar)
-    .directive('expenseList', expenseList);
+    .component('navbar', navbar)
+    .component('expenseList', expenseList);
 }
