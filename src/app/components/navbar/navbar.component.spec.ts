@@ -1,3 +1,5 @@
+let expect = chai.expect;
+
 describe('component navbar', () => {
   let element: angular.IAugmentedJQuery;
 
@@ -14,7 +16,7 @@ describe('component navbar', () => {
   }));
 
   it('should be compiled', () => {
-    expect(element.html()).not.toEqual(null);
+    expect(element.html()).not.to.be.null;
   });
 
 });

@@ -1,5 +1,5 @@
 import { ExpenseListController } from './expenseList.controller';
-
+let expect = chai.expect;
 describe('component expenseList', () => {
   let element: angular.IAugmentedJQuery;
   let expenseListController: ExpenseListController;
@@ -19,11 +19,11 @@ describe('component expenseList', () => {
   }));
 
   it('should be compiled', () => {
-    expect(element.html()).not.toEqual(null);
+    expect(element.html()).not.to.be.null;
   });
 
   it('should have isolate scope object with instanciate members', () => {
-    expect(expenseListController).not.toBeNull();
-    expect(expenseListController.expenses).not.toBeNull();
+    expect(expenseListController).not.to.be.null;
+    expect(expenseListController.expenses).not.to.be.null;
   });
 });
