@@ -5,7 +5,7 @@
 			<div ng-repeat="expense in vm.expenses track by expense.id | orderBy:'id'">
 				<div class="expense--card clearfix">
 					<p>Spent <b>{{expense.amount}}</b> for {{expense.description}} ({{expense.category}}) with {{expense.paymentMode}}</p>
-                    <span class="pull-right">{{expense.incomeSource }} - {{expense.id | date}}</span>
+          <span class="pull-right">{{expense.account }} - {{expense.id | date}}</span>
 				</div>
 			</div>
 		</div>

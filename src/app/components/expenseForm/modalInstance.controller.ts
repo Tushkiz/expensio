@@ -1,13 +1,6 @@
 import { StoreService, Expense } from '../store/store.service';
 
-interface IModalInstanceScope  extends angular.IScope {
-    id: number;
-    description: string;
-    amount: number;
-    category: string;
-    paymentMode: string;
-    incomeSource: string;
-}
+interface IModalInstanceScope extends Expense, angular.IScope {};
 
 export class ModalInstanceController {
   /** @ngInject */
@@ -20,7 +13,7 @@ export class ModalInstanceController {
       amount: Number(this.$scope.amount),
       category: this.$scope.category,
       paymentMode: this.$scope.paymentMode,
-      incomeSource: this.$scope.incomeSource
+      account: this.$scope.account
     };
 
     this.store.save(data);
