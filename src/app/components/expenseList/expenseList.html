@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="panel panel-default">
 		<div class="panel-heading">Expense List</div>
-		<div class="panel-body">
+		<div>
 			<div ng-repeat="expense in vm.expenses track by expense.id | orderBy:'id'">
 				<div class="expense--card clearfix">
 					<p>Spent <b>{{expense.amount}}</b> for {{expense.description}} ({{expense.category}}) with {{expense.paymentMode}}</p>

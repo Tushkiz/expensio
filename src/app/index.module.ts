@@ -10,6 +10,7 @@ import { ExpenseListController } from './components/expenseList/expenseList.cont
 import { StoreService } from '../app/components/store/store.service';
 import { navbar } from '../app/components/navbar/navbar.component';
 import { expenseList } from '../app/components/expenseList/expenseList.component';
+import { donutChart } from '../app/components/charts/donutChart.component';
 
 module expensio {
   'use strict';
@@ -24,5 +25,6 @@ module expensio {
     .controller('ExpenseFormController', ExpenseFormController)
     .controller('ExpenseListController', ExpenseListController)
     .component('navbar', navbar)
-    .component('expenseList', expenseList);
+    .component('expenseList', expenseList)
+    .directive('donutChart', donutChart);
 }

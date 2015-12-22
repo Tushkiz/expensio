@@ -10,31 +10,41 @@
         <div class="col-sm-12">
           <div class="panel panel-default">
             <div class="panel-heading">Expense Graph 1</div>
-            <div class="panel-body thumbnail">
-              
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-sm-4">
+                  <donut-chart payment="cash"></donut-chart>
+                </div>
+                <div class="col-sm-4">
+                  <donut-chart payment="debit-card"></donut-chart>
+                </div>
+                <div class="col-sm-4">
+                  <donut-chart payment="credit-card"></donut-chart>
+                </div>
+              </div>
             </div>
           </div>
-          
+
           <div class="panel panel-default">
             <div class="panel-heading">Expense Graph 2</div>
-            <div class="panel-body thumbnail">
-              
+            <div class="panel-body">
+
             </div>
           </div>
-          
+
           <div class="panel panel-default">
             <div class="panel-heading">Expense Graph 3</div>
-            <div class="panel-body thumbnail">
-              
+            <div class="panel-body">
+
             </div>
           </div>
         </div>
-      </div>    
+      </div>
     </div>
     <div class="col-md-4">
       <expense-list></expense-list>
     </div>
   </div>
-  
-  
+
+
 </div>

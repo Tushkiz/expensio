@@ -8,4 +8,13 @@ export function config($logProvider: angular.ILogProvider, toastrConfig: any) {
   toastrConfig.positionClass = 'toast-top-right';
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
+
+  Array.prototype.groupBy = function (key) {
+    var result = {};
+    this.forEach(function (item) {
+      result[item[key]] = result[item[key]] || [];
+      result[item[key]].push(item)
+    });
+    return result;
+  }
 }
