@@ -41,6 +41,7 @@ gulp.task('list', function () {
     [gulpUtil.colors.blue("`$ gulp test:auto`"), "to run your unit tests with Karma in watch mode"].join(" "),
     [gulpUtil.colors.blue("`$ gulp protractor`"), "to launch your e2e tests with Protractor"].join(" "),
     [gulpUtil.colors.blue("`$ gulp protractor:dist`"), "to launch your e2e tests with Protractor on the dist files"].join(" "),
+    [gulpUtil.colors.blue("`$ gulp deploy`"), "to deploy '/dist' to github"].join(" "),
     [gulpUtil.colors.blue("`$ gulp list`"), "to list all these tasks"].join(" ")
   ].join('\n'));
 });
