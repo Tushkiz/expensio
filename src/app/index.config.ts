@@ -9,12 +9,12 @@ export function config($logProvider: angular.ILogProvider, toastrConfig: any) {
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
 
-  Array.prototype.groupBy = function (key) {
+  Array.prototype.groupBy = function (key: string) {
     var result = {};
-    this.forEach(function (item) {
+    this.forEach(function (item: any) {
       result[item[key]] = result[item[key]] || [];
-      result[item[key]].push(item)
+      result[item[key]].push(item);
     });
     return result;
-  }
+  };
 }
