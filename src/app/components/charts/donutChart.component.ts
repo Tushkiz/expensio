@@ -1,9 +1,8 @@
-import { StoreService, Expense } from '../store/store.service';
+import { StoreService, Expense, IExpensioScope } from '../store/store.service';
 
-interface IDonutChartScope extends angular.IScope {
+interface IDonutChartScope extends IExpensioScope {
   data: number[];
   payment: string;
-  expenses: Expense[];
   calculateData (expenses: Expense[]): any[];
 }
 

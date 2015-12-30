@@ -1,4 +1,4 @@
-import { StoreService, Expense } from '../store/store.service';
+import { StoreService, Expense, IExpensioScope } from '../store/store.service';
 
 /** @ngInject */
 export function scatterChart(): angular.IDirective {
@@ -108,7 +108,7 @@ export function scatterChart(): angular.IDirective {
 
     },
     /** @ngInject */
-    controller: ($scope: angular.IScope, store: StoreService) => {
+    controller: ($scope: IExpensioScope, store: StoreService) => {
       $scope.expenses = store.expenses;
     }
   };
