@@ -12,6 +12,7 @@ import { navbar } from '../app/components/navbar/navbar.component';
 import { expenseList } from '../app/components/expenseList/expenseList.component';
 import { donutChart } from '../app/components/charts/donutChart.component';
 import { scatterChart } from '../app/components/charts/scatterChart.component';
+import { gaugeChart } from '../app/components/charts/gaugeChart.component';
 
 module expensio {
   'use strict';
@@ -28,5 +29,6 @@ module expensio {
     .component('navbar', navbar)
     .component('expenseList', expenseList)
     .directive('donutChart', donutChart)
-    .directive('scatterChart', scatterChart);
+    .directive('scatterChart', scatterChart)
+    .directive('gaugeChart', gaugeChart);
 }
