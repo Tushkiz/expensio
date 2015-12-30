@@ -14,7 +14,7 @@ export function scatterChart(): angular.IDirective {
         bottom: 0,
         left: 0
       };
-      let width = 640 - margin.left - margin.right;
+      let width = 700 - margin.left - margin.right;
       let height = 300 - margin.top - margin.bottom;
       let padding = 30;
       let render = (data: Expense[]) => {
@@ -25,7 +25,7 @@ export function scatterChart(): angular.IDirective {
             new Date(data[0].id),
             d3.time.day.offset(new Date(data[data.length - 1].id), 1)
           ])
-          .range([0, width]);
+          .range([padding, width - padding]);
 
         let yScale = d3.scale.linear()
           .domain([
@@ -51,7 +51,7 @@ export function scatterChart(): angular.IDirective {
           .scale(xScale)
           .orient('bottom')
           .ticks(d3.time.days, 1)
-          .tickFormat(d3.time.format('%d'))
+          .tickFormat(d3.time.format('%d/%m'))
           .tickSize(1)
           .tickPadding(10);
 
@@ -59,16 +59,19 @@ export function scatterChart(): angular.IDirective {
         let yAxis = d3.svg.axis()
           .scale(yScale)
           .orient('left')
-          .tickSize(1)
+          .tickSize(0.5)
           .tickPadding(5);
+
+        // remove all previous items before render
+        d3.select(element[0]).selectAll('*').remove();
 
         // create svg
         let svg = d3.select(element[0]).append('svg')
           .attr('class', 'scatter-chart')
           .attr('width', width)
-          .attr('height', height + padding)
+          .attr('height', height + padding + 10)
           .append('g')
-          .attr('transform', 'translate(' + 40 + ', ' + 5 + ')');
+          .attr('transform', 'translate(' + 30 + ', ' + 10 + ')');
 
         // create circles
         svg.selectAll('circle')
