@@ -1,6 +1,8 @@
+import data from './data';
+
 export interface IExpensioScope extends angular.IScope {
   expenses: Expense[];
-  accounts: Account[]
+  accounts: Account[];
 }
 
 export class Expense {
@@ -30,108 +32,24 @@ export class StoreService {
   }
 
   public save(expense: Expense) {
-    this.expenseData.push(expense);
-    this.updateAccounts(expense);
-    localStorage.setItem('ls.expenses', JSON.stringify(this.expenseData));
+    let result = this.updateAccounts(expense);
+
+    if (!result) {
+      this.toastr.error('Insufficient balance in "' + expense.account + '" account.');
+    } else {
+      this.expenseData.push(expense);
+      localStorage.setItem('ls.expenses', JSON.stringify(this.expenseData));
+    }
   }
 
-  constructor() {
-    let rawExpenseData = [{
-      'id': 1450217381460,
-      'description': 'Lunch',
-      'amount': 100,
-      'category': 'food',
-      'account': 'salary',
-      'paymentMode': 'debit-card'
-    }, {
-      'id': 1450246181810,
-      'description': 'Jeans',
-      'amount': 799,
-      'category': 'shopping',
-      'account': 'business',
-      'paymentMode': 'credit-card'
-    }, {
-      'id': 1450317382160,
-      'description': 'Rent',
-      'amount': 4150,
-      'category': 'rent',
-      'account': 'farming',
-      'paymentMode': 'cash'
-    }, {
-      'id': 1450340382510,
-      'description': 'Dinner',
-      'amount': 80,
-      'category': 'food',
-      'account': 'salary',
-      'paymentMode': 'cash'
-    }, {
-      'id': 1450417382860,
-      'description': 'Petrol',
-      'amount': 500,
-      'category': 'fuel',
-      'account': 'salary',
-      'paymentMode': 'cash'
-    }, {
-      'id': 1450517382860,
-      'description': 'Groceries',
-      'amount': 1000,
-      'category': 'shopping',
-      'account': 'salary',
-      'paymentMode': 'credit-card'
-    }, {
-      'id': 1450691335302,
-      'description': 'team lunch',
-      'amount': 2000,
-      'category': 'food',
-      'paymentMode': 'debit-card',
-      'account': 'business'
-    }, {
-      'id': 1450772764033,
-      'description': 'Bday Party',
-      'amount': 5000,
-      'category': 'food',
-      'paymentMode': 'credit-card',
-      'account': 'business'
-    }, {
-      'id': 1450775163545,
-      'description': 'December Rent',
-      'amount': 4150,
-      'category': 'rent',
-      'paymentMode': 'debit-card',
-      'account': 'salary'
-    }, {
-      'id': 1450778997001,
-      'description': 'Memory Card',
-      'amount': 600,
-      'category': 'shopping',
-      'paymentMode': 'debit-card',
-      'account': 'business'
-    }, {
-      'id': 1450861404912,
-      'description': 'Helmet',
-      'amount': 2000,
-      'category': 'shopping',
-      'paymentMode': 'cash',
-      'account': 'salary'
-    }];
-
-    let rawAccountData = [{
-      'name': 'salary',
-      'balance': 98320
-    }, {
-      'name': 'business',
-      'balance': 97201
-    }, {
-      'name': 'farming',
-      'balance': 95850
-    }];
-
+  /** @ngInject */
+  constructor(protected toastr: any) {
     if (localStorage.getItem('ls.expenses') == null) {
-      localStorage.setItem('ls.expenses', JSON.stringify(rawExpenseData));
+      localStorage.setItem('ls.expenses', JSON.stringify(data.expenses));
     }
 
     if (localStorage.getItem('ls.accounts') == null) {
-      localStorage.setItem('ls.accounts', JSON.stringify(rawAccountData));
+      localStorage.setItem('ls.accounts', JSON.stringify(data.accounts));
     }
 
     this.expenseData = JSON.parse(localStorage.getItem('ls.expenses'));
@@ -144,6 +62,13 @@ export class StoreService {
       return account.name === expense.account;
     })[0];
 
+    if (expense.amount > accountToUpdate.balance) {
+      return false;
+    }
+
     accountToUpdate.balance = accountToUpdate.balance - expense.amount;
+    localStorage.setItem('ls.accounts', JSON.stringify(this.accountData));
+
+    return true;
   }
 }
